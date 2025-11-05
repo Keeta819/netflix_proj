@@ -29,16 +29,16 @@
             }
             .search-container {
                 display: flex;
-                justify-content: center;  /* centers the whole search bar section */
-                align-items: center;      /* aligns items vertically */
-                gap: 10px;                /* adds space between icon, input, and button */
+                justify-content: center; 
+                align-items: center;     
+                gap: 10px;               
                 margin-bottom: 30px;
                 margin-top: 25px;
             }
             .search-container img.search {
-                width: 25px;     /* adjust size as needed */
+                width: 25px;   
                 height: 25px;
-                cursor: pointer; /* optional: makes it feel clickable */
+                cursor: pointer;
             }
             input[type="text"] {
                 width: 300px;
@@ -60,10 +60,10 @@
             }
              /* Sidebar container */
             .sidebar {
-                position: fixed;           /* stays visible while scrolling */
+                position: fixed;       
                 top: 0;
                 left: 0;
-                height: 100vh;             /* full viewport height */
+                height: 100vh;   
                 width: 80px;
                 background-color: dimgray;
                 display: flex;
