@@ -11,25 +11,25 @@
             }
             /* SIDEBAR */
             .sidebar {       
-                display:flex;
+                display:inline-block;
                 top: 0px;
                 left: 0px;
-                height: 800px;   
-                width: 100px;
+                height: 700px;   
+                width: 60px;
                 background-color: rgb(56, 52, 52);
-                display:inline;
+                display:flex;
                 flex-direction: column;
                 align-items: center;
                 padding-top: 30px;
             }
             .sidebar img {
                 width: 20px;
-                height: 100px;
+                height: 20px;
                 object-fit: contain;
             }
             /* SEARCH PAGE */
             .topresults {
-                 text-align:center;
+                text-align:center;
                 font-size: 15px;
                 color: gray;
                 margin-left: 100px;
