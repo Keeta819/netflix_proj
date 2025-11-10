@@ -1,5 +1,6 @@
             /* MAIN */
             body {
+                display:flex;
                 margin: 0;
                 font-family: Arial, sans-serif;
                 background-color: rgb(17, 14, 14);
@@ -11,13 +12,13 @@
             }
             /* SIDEBAR */
             .sidebar {       
-                display:inline-block;
+                display:flex;
+                position: fixed;
                 top: 0px;
                 left: 0px;
                 height: 700px;   
                 width: 60px;
                 background-color: rgb(56, 52, 52);
-                display:flex;
                 flex-direction: column;
                 align-items: center;
                 padding-top: 30px;
@@ -41,6 +42,7 @@
                 margin-left: 100px;
             }
             .search_cont {
+                text-align: center;
                 margin-left: 100px;
                 margin-top: 50px;
             }
