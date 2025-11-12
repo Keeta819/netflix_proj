@@ -15,7 +15,7 @@
 
       }
       
-    .main {
+    .main { /*separates the sidebar from the rest of the main page. By justifying it, we overwrite the external css.*/
       display: flex;
       flex: 1;
       justify-content: center;
@@ -32,19 +32,19 @@
       overflow: auto;
       flex-wrap: wrap;
     }
-    .Movies {
+    .Movies { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
       gap: 10px;
       overflow: auto;
       flex-wrap: wrap;
     }
-    .Shows {
+    .Shows { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
       gap: 10px;
       overflow: auto;
       flex-wrap: wrap;
     }
-    .container {
+    .container { /* contains all of the content including the sidebar used to flex the screen to different sizes */
       display: flex;
     }
 
@@ -72,8 +72,8 @@
     <div class="item4"><a href="NetflixSettings.html"><img src="Settings.png" alt="Settings"></a></div>
   </div>
 
-    <main>
-      <div class="searchbox">
+    <main> <!--I need to manipulate the rest of the body content from the main sidebar so that it appears side by side-->
+      <div class="searchbox"> <!--I used a form here as a div class to include the search image next to it-->
         <img src="Search.png" alt="">
       <form>
     <label for="search"></label>
@@ -81,7 +81,7 @@
   </form>
   </div>
 
-    <h2>Trending</h2>
+    <h2>Trending</h2> <!--divs for all of the images and relevant sections are below-->
 <div class="Trending">
     <img src="horrorfeature1.png">
     <img src="horrorfeature2.png">
