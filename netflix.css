@@ -25,7 +25,8 @@
             .sidebar img {
                 width: 20px;
                 height: 20px;
-                object-fit: contain;
+                object-fit: conatin;
+                margin-bottom: 75px;
             }
             /* SEARCH PAGE */
             .topresults {
@@ -36,7 +37,7 @@
             }
             .keyboard {
                 text-align:center;
-                font-size: 10px;
+                font-size: 15px;
                 color: gray;
                 margin-left: 100px;
             }
