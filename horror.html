@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="netflix.css">
   <style>
       #search { /* adjusts dimensions of the searchbox to match the Netflix color & theme */
-        padding: 10px;
+        padding: 20px;
         background-color: black;
         border-color: red;
         color: red;
@@ -24,28 +24,32 @@
 
     h2 {
       color: white;
+      padding-left: 20vh;
     }
 
     .Trending { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 20px;
+      gap: 5vh;
       overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
+      
     }
     .Movies { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 20px;
+      gap: 5vh;
       overflow: auto;
       flex-wrap: wrap;
-      justify-content: center;
+      padding-left: 20vh;
+      
     }
     .Shows { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 20px;
+      gap: 5vh;
       overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
+      padding-left: 20vh;
     }
     .container { /* contains all of the content including the sidebar used to flex the screen to different sizes */
       display: flex;
@@ -53,7 +57,7 @@
 
     h1 {
       color: red;
-      padding-left:300px;
+      padding-left:100vh;
     
     }
     .searchbox {
@@ -86,11 +90,13 @@
 
     <h2>Trending</h2> <!--divs for all of the images and relevant sections are below-->
 <div class="Trending">
+    <img src="leftarrow.png">
     <img src="horrorfeature1.png">
     <img src="horrorfeature2.png">
     <img src="horrorfeature3.png">
     <img src="horrorfeature4.png">
     <img src="horrorfeature5.png">
+    <img src="rightarrow.png">
     </div>
 
     <h1>Horror</h1>
@@ -121,12 +127,48 @@
    </div>
 
    <script>
+
    const movieData ={
    horror: {
-    moveies: {
-      ""
-    }
+    trending: [
+      "horrorfeature1.png",
+      "horrorfeature2.png",
+      "horrorfeature3.png",
+      "horrorfeature4.png",
+      "horrorfeature5.png"
+    ],
+    movies: [
+      "horrormovie1.png",
+      "horrormovie2.png",
+      "horrormovie3.png",
+      "horrormovie4.png",
+      "horrormovie5.png"
+   ],
+   shows: [
+   "horrorshow1.png",
+   "horrorshow2.png",
+   "horrorshow3.png",
+   "horrorshow4.png",
+   "horrowshow5.png"
+   ]
+
    }
+
+   };
+
+   /* Card Generation of Movies for replication */
+   
+   function generateCard(imgSrc) {
+    const card = document.createElement("div");
+    card.cardName = "card";
+
+    const img = document.createElement("img");
+    img.src = imgSrc;
+
+    card.appendChild(img);
+
+    return card;
+
 
    }
 
