@@ -64,6 +64,16 @@
       display: flex;
     }
 
+    .card {
+      width: 100px;
+      height: 200px;
+      display: inline;
+      margin: 10px;
+      border-radius: 9px;
+
+    }
+
+
    
 
   </style>
@@ -155,9 +165,10 @@
    }
 
    };
+   </script>
 
    /* Card Generation of Movies for replication */
-   
+   <script>
    function generateCard(imgSrc) {
     const card = document.createElement("div");
     card.cardName = "card";
@@ -168,10 +179,24 @@
     card.appendChild(img);
 
     return card;
-
-
    }
 
-   </script>
+    /* Placing Cards into my flex container */
+
+    function placeContainer(containerClass, items) {
+      const container = document.querySelector(containerClass);
+
+      items.forEach (src=> {
+        const card = createCard(src);
+        container.appendChild(card);
+
+      });
+    }
+     /*Applying Cards into the Horror Movie section */
+     applySection(".Trending", data.horror.trending);
+     applySection(".Movies", data.horror.movies);
+     applySection(".Shows",data.horror.shows);
+</script>
+   
  </body> 
 </html>
