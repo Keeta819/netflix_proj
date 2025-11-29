@@ -30,23 +30,22 @@
     .Trending { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
       gap: 5vh;
-      overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
+      padding-left: 20vh;
       
     }
     .Movies { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
       gap: 5vh;
-      overflow: auto;
       flex-wrap: wrap;
+      justify-content: center;
       padding-left: 20vh;
       
     }
     .Shows { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
       gap: 5vh;
-      overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
       padding-left: 20vh;
@@ -57,7 +56,7 @@
 
     h1 {
       color: red;
-      padding-left:100vh;
+      padding-left:50vh;
     
     }
     .searchbox {
@@ -70,12 +69,13 @@
       display: inline;
       margin: 10px;
       border-radius: 9px;
-
+      color: grey;
     }
-
-
+    
+    #searchimg {
+      padding-left: 10vh;
+    }
    
-
   </style>
 </head>
 <body>
@@ -91,112 +91,98 @@
 
     <main> <!--I need to manipulate the rest of the body content from the main sidebar so that it appears side by side-->
       <div class="searchbox"> <!--I used a form here as a div class to include the search image next to it-->
-        <img src="Search.png" alt="">
+        <img id="searchimg"src="Search.png" alt="">
       <form>
     <label for="search"></label>
     <input type="text" id="search" name="search" value="" placeholder="Search">
   </form>
   </div>
+  <h1>Horror</h1>
 
     <h2>Trending</h2> <!--divs for all of the images and relevant sections are below-->
-<div class="Trending">
-    <img src="leftarrow.png">
-    <img src="horrorfeature1.png">
-    <img src="horrorfeature2.png">
-    <img src="horrorfeature3.png">
-    <img src="horrorfeature4.png">
-    <img src="horrorfeature5.png">
-    <img src="rightarrow.png">
-    </div>
-
-    <h1>Horror</h1>
+<div class="Trending"> </div> <br><br><br>
 
     <h2>Movies:</h2>
-    <div class ="Movies">
-    <img src="leftarrow.png">
-    <img src="horrormovie1.png">
-    <img src="horrormovie2.png">
-    <img src="horrormovie3.png">
-    <img src="horrormovie4.png">
-    <img src="horrormovie5.png">
-    <img src="rightarrow.png">
-    </div>
+    <div class ="Movies"></div>
 
     <h2>Shows:</h2>
-    <div class="Shows">
-    <img src="leftarrow.png">
-    <img src="horrorshow1.png">
-    <img src="horrorshow2.png">
-    <img src="horrorshow3.png">
-    <img src="horroshow4.png">
-    <img src="horrorshow5.png">
-    <img src="rightarrow.png">
-    </div>
-
+    <div class="Shows"> </div>
     </main>
    </div>
-
-   <script>
-
-   const movieData ={
-   horror: {
+  
+   <script> /*JSON Data (add more movies/shows as needed) */
+const data = {
+   horror:{
     trending: [
-      "horrorfeature1.png",
-      "horrorfeature2.png",
-      "horrorfeature3.png",
-      "horrorfeature4.png",
-      "horrorfeature5.png"
-    ],
-    movies: [
-      "horrormovie1.png",
-      "horrormovie2.png",
-      "horrormovie3.png",
-      "horrormovie4.png",
-      "horrormovie5.png"
-   ],
+     {src:"horrorfeature1.png",title:"The Witch"},
+     {src: "horrorfeature2.png",title: "I Know What You Did Last Summer"},
+     {src: "horrorfeature3.png", title: "Talk To Me"},
+     {src: "horrorfeature4.png", title: "Abigail"},
+     {src: "horrorfeature5.png", title: "Halloween"}
+  ],
+  movies: [
+   { src: "horrormovie1.png", title: "Alien" },
+   { src: "horrormovie2.png", title: "" },
+    { src: "horrormovie3.png", title: "Weapons" },
+      { src: "horrormovie4.png", title: "The Purge" },
+      { src: "horrormovie5.png", title: "Friday The 13th" }
+  ],
    shows: [
-   "horrorshow1.png",
-   "horrorshow2.png",
-   "horrorshow3.png",
-   "horrorshow4.png",
-   "horrowshow5.png"
-   ]
-
-   }
-
-   };
+          { src: "horrorshow1.png", title: "American Horror Story" },
+          { src: "horrorshow2.png", title: "The Haunting of Hill Manor" },
+          { src: "horrorshow3.png", title: "Evil" },
+          { src: "horroshow4.png", title: "Grotesquerie" },
+          { src: "horrorshow5.png", title: "Mariann" }
+],
+  }
+};
    </script>
+ <script>
+    
+    function createCard(item) {
+      const card = document.createElement('div');
+      card.className = 'card';
 
-   /* Card Generation of Movies for replication */
-   <script>
-   function generateCard(imgSrc) {
-    const card = document.createElement("div");
-    card.cardName = "card";
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb';
 
-    const img = document.createElement("img");
-    img.src = imgSrc;
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = item.title || '';
 
-    card.appendChild(img);
+      thumb.appendChild(img);
+      card.appendChild(thumb);
 
-    return card;
-   }
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = item.title || '';
+      card.appendChild(title);
 
-    /* Placing Cards into my flex container */
+      return card;
+    }
 
-    function placeContainer(containerClass, items) {
-      const container = document.querySelector(containerClass);
-
-      items.forEach (src=> {
-        const card = createCard(src);
+    /* Place Created items into container based on defined class */
+    function renderSection(selector, items) {
+      const container = document.querySelector(selector);
+      items.forEach(item => {
+        const card = createCard(item);
         container.appendChild(card);
-
       });
     }
-     /*Applying Cards into the Horror Movie section */
-     applySection(".Trending", data.horror.trending);
-     applySection(".Movies", data.horror.movies);
-     applySection(".Shows",data.horror.shows);
-</script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!data || !data.horror) {
+        console.error('Data missing or malformed');
+        return;
+      }
+
+      /*display each section*/
+      renderSection('.Trending', data.horror.trending);
+      renderSection('.Movies', data.horror.movies);
+      renderSection('.Shows', data.horror.shows);
+
+      
+    });
+  </script>
    
  </body> 
 </html>
