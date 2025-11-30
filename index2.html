@@ -4,7 +4,7 @@
          <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Netflix Home Page</title>
-        
+        <link rel="stylesheet" href="netflix.css">
       <style>
         .container {    /*(.container, .sidebar, .sidebar img are all for the bar on left side of screen)*/
           display: flex;
@@ -36,7 +36,7 @@
           flex: 1;
           padding: 20px;
         }
-        .trending, .continuewatching, .genres {
+        .genres {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -48,15 +48,10 @@
           color: red;
           text-align: center;
         }
-        .trending img, .continuewatching img, .genreitem img {
+        .genreitem img {
           width: 150px;
           height: 200px;
           object-fit: cover;
-        }
-        .trending img.arrow { /*This Overrides .trending img, .continuewatchin img So the side arrows can be different sizes then the movies */
-          width: 75px;
-          height: 100px;
-          object-fit: contain;
         }
         .genreitem {
           display: flex;
@@ -79,3 +74,76 @@
     <div class="item3"><img src="Movies.png" alt="Movies"></div>
     <div class="item4"><img src="Settings.png" alt="Settings"></div>
   </div>
+  <h4 class="heading">Genres</h4>
+    <div class="genres">
+    <div class="genreitem">
+    <img src="Michael Myers.jpeg" alt="Michael Myers">
+    <p>Horror</p>
+    </div>
+    <div class="genreitem">
+    <img src="Football.jpeg" alt="Football">
+    <p>Sports</p>
+    </div>
+    <div class="genreitem">
+    <img src="Sci Fi.jpeg" alt="Sci Fi">
+    <p>Sci-Fi</p>
+    </div>
+    <div class="genreitem">
+    <img src="Romance.jpeg" alt="Romance">
+    <p>Romance</p>
+    </div>
+    <div class="genreitem">
+    <img src="Cooking.jpeg" alt="Cooking">
+    <p>Cooking</p>
+    </div>
+    </div>
+
+    <div class="results_row_1" id="results1"></div>
+    <div class="results_row_2" id="results2"></div>    
+<script>
+  var trending = [
+    { id: 1, title: "Superman 1", img: "trending1.jpeg" },
+    { id: 2, title: "Grown Ups 2", img: "trending2.jpeg" },
+    { id: 3, title: "Stranger Things", img: "trending3.jpg" },
+    { id: 4, title: "Kung Fu Panda", img: "trending4.jpeg" },
+    { id: 5, title: "Jaws", img: "trending5.png" },
+  ];
+  for (var i = 0; i < trending.length; i++) {
+    var cardHTML =
+      '<div class="listing-card">' +
+      '<img src="' + trending[i].img + '" alt="' + trending[i].title + '">' +
+      '<p class="card-title">' + trending[i].title + '</p>' +
+      '</div>';
+
+    if (i < 4) {
+      results1.innerHTML += cardHTML;
+    } else {
+      results2.innerHTML += cardHTML;
+    }
+  }
+</script>
+<script>
+  var continuewatching = [
+    { id: 1, title: "Extraction", img: "continuewatching1.png" },
+    { id: 2, title: "The Irishman", img: "continuewatching2.png" },
+    { id: 3, title: "Drake and Josh", img: "continuewatching3.jpeg" },
+    { id: 4, title: "Happy Gilmore 2", img: "continuewatching4.jpeg" },
+    { id: 5, title: "Spiderman 2", img: "continuewatching5.jpeg" },
+  ];
+  for (var i = 0; i < continuewatching.length; i++) {
+    var cardHTML =
+      '<div class="listing-card">' +
+      '<img src="' + continuewatching[i].img + '" alt="' + continuewatching[i].title + '">' +
+      '<p class="card-title">' + continuewatching[i].title + '</p>' +
+      '</div>';
+
+    if (i < 4) {
+      results1.innerHTML += cardHTML;
+    } else {
+      results2.innerHTML += cardHTML;
+    }
+  }
+</script>
+
+</body>
+</html>
