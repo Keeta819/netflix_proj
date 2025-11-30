@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Netflix Home Page</title>
+        
+      <style>
+        .container {    /*(.container, .sidebar, .sidebar img are all for the bar on left side of screen)*/
+          display: flex;
+          align-items: flex-start;
+        }
+        .sidebar {       
+          position: sticky;
+          top: 0px;
+          height: 100vh;   
+          width: 60px;
+          background-color: rgb(56, 52, 52);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 30px;
+        }
+        .sidebar img {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+          margin-bottom: 75px;
+        }
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background-color: rgb(17, 14, 14);
+        }
+        main {
+          flex: 1;
+          padding: 20px;
+        }
+        .trending, .continuewatching, .genres {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin-top: 20px;
+          flex-wrap: wrap; /*Adjusts content better for various screen sizes*/
+        }
+        .heading {
+          color: red;
+          text-align: center;
+        }
+        .trending img, .continuewatching img, .genreitem img {
+          width: 150px;
+          height: 200px;
+          object-fit: cover;
+        }
+        .trending img.arrow { /*This Overrides .trending img, .continuewatchin img So the side arrows can be different sizes then the movies */
+          width: 75px;
+          height: 100px;
+          object-fit: contain;
+        }
+        .genreitem {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .genreitem p {
+          color: red;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+  <div class="container">
+
+   <div class="sidebar">
+    <div class="item1"><img src="netflixicon.png" alt="Netflix"></div>
+    <div class="item2"><img src="Nhome.png" alt="Home"></div>
+    <div class="item3"><img src="tvshow.png" alt="Tv Shows"></div>
+    <div class="item3"><img src="Movies.png" alt="Movies"></div>
+    <div class="item4"><img src="Settings.png" alt="Settings"></div>
+  </div>
