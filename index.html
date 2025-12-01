@@ -166,9 +166,54 @@
       '<img src="' + continuewatching[i].img + '" alt="' + continuewatching[i].title + '">' +
       '<p class="card-title">' + continuewatching[i].title + '</p>' +
       '</div>';
-      continueRow.innerHTML += cardHTML;
+    continueRow.innerHTML += cardHTML;
   }
 </script>
+<script> /* Javascript create cards and make them appear under each section */
+    
+    function createCard(item) {
+      const card = document.createElement('div');
+      card.className = 'card';
 
-</body>
+      const thumb = document.createElement('div');
+      thumb.className = 'thumb';
+
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = item.title || '';
+
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = item.title || '';
+      card.appendChild(title);
+
+      return card;
+    }
+
+    /* Place Created items into container based on defined class */
+    function renderSection(selector, items) {
+      const container = document.querySelector(selector);
+      items.forEach(item => {
+        const card = createCard(item);
+        container.appendChild(card);
+      });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!data || !data.horror) {
+        console.error('Data missing or malformed');
+        return;
+      }
+
+      /*display cards in each section*/
+      renderSection('.Trending', data.index.trending);
+      renderSection('.Genres', data.index.genres);
+      renderSection('.ContinueWatching', data.index.continuewatching);
+
+      
+    });
+  </script>  
+  </body>
 </html>
