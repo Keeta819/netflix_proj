@@ -1,224 +1,213 @@
 <!DOCTYPE html>
 <html>
-    <head>
-         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Netflix Home Page</title>
-        <link rel="stylesheet" href="netflix.css">
-      <style>
-        .container {    /*(.container, .sidebar, .sidebar img are all for the bar on left side of screen)*/
-          display: flex;
-          align-items: flex-start;
-        }
-        .sidebar {       
-          position: sticky;
-          top: 0px;
-          height: 100vh;   
-          width: 60px;
-          background-color: rgb(56, 52, 52);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 30px;
-        }
-        .sidebar img {
-          width: 20px;
-          height: 20px;
-          object-fit: contain;
-          margin-bottom: 75px;
-        }
-        body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: rgb(17, 14, 14);
-        }
-        main {
-          flex: 1;
-          padding: 20px;
-        }
-        .genres {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          margin-top: 20px;
-          flex-wrap: wrap; /*Adjusts content better for various screen sizes*/
-        }
-        .heading {
-          color: red;
-          text-align: center;
-        }
-        .genreitem img {
-          width: 150px;
-          height: 200px;
-          object-fit: cover;
-          border-radius: 6px;
-        }
-        .genreitem {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          margin: 10px;
-        }
-        .genreitem p {
-          font-size: 12px;
-          color: red;
-          margin-top: 6px;
-          text-align: center;
-        }
-        .listing-card img {
-          width: 150px;
-          height: 200px;
-          object-fit: cover;
-          border-radius: 6px;
-          display: block;
-        }
-        .listing-card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          margin: 10px;
-        }
-        .card-title {
-          font-size: 12px;
-          color: red;
-          margin-top: 6px;
-          text-align: center;
-        }
-      </style>
-</head>
-<body>
-  <div class="container">
-
-   <div class="sidebar">
-    <div class="item1"><img src="netflixicon.png" alt="Netflix"></div>
-    <div class="item2"><img src="Nhome.png" alt="Home"></div>
-    <div class="item3"><img src="tvshow.png" alt="Tv Shows"></div>
-    <div class="item3"><img src="Movies.png" alt="Movies"></div>
-    <div class="item4"><img src="Settings.png" alt="Settings"></div>
-  </div>
-<main style="margin-left:80px; width: 100%;">
-<main style="margin-left:80px; width: 100%;">
-  <div class="search_cont" onclick="window.location.href='search.html'">
-    <img src="netflixsearch.png" class="searchicon">
-    <input type="text" placeholder="Search..." class="inputbg" readonly>
-  </div>
-
-  <h4 class="heading">Trending</h4>
-  <div class="results_row_1" id="trendingRow"></div>
-
-  <h4 class="heading">Genres</h4>
-    <div class="genres">
-    <div class="genreitem">
-    <img src="Michael Myers.jpeg" alt="Michael Myers">
-    <p>Horror</p>
-    </div>
-    <div class="genreitem">
-    <img src="Football.jpeg" alt="Football">
-    <p>Sports</p>
-    </div>
-    <div class="genreitem">
-    <img src="Sci Fi.jpeg" alt="Sci Fi">
-    <p>Sci-Fi</p>
-    </div>
-    <div class="genreitem">
-    <img src="Romance.jpeg" alt="Romance">
-    <p>Romance</p>
-    </div>
-    <div class="genreitem">
-    <img src="Cooking.jpeg" alt="Cooking">
-    <p>Cooking</p>
-    </div>
-    </div>
-
-    <h4 class="heading">Continue Watching</h4>
-    <div class="results_row_2" id="continueRow"></div>  
-    
-  </main> 
-<script>
-  var trending = [
-    { id: 1, title: "Superman 1", img: "trending1.jpeg" },
-    { id: 2, title: "Grown Ups 2", img: "trending2.jpeg" },
-    { id: 3, title: "Stranger Things", img: "trending3.jpg" },
-    { id: 4, title: "Kung Fu Panda", img: "trending4.jpeg" },
-    { id: 5, title: "Jaws", img: "trending5.png" },
-  ];
-  var trendingRow = document.getElementById("trendingRow");
-  
-  for (var i = 0; i < trending.length; i++) {
-    var cardHTML =
-      '<div class="listing-card">' +
-      '<img src="' + trending[i].img + '" alt="' + trending[i].title + '">' +
-      '<p class="card-title">' + trending[i].title + '</p>' +
-      '</div>';
-      trendingRow.innerHTML += cardHTML;
-  }
-</script>
-<script>
-  var continuewatching = [
-    { id: 1, title: "Extraction", img: "continuewatching1.png" },
-    { id: 2, title: "The Irishman", img: "continuewatching2.png" },
-    { id: 3, title: "Drake and Josh", img: "continuewatching3.jpeg" },
-    { id: 4, title: "Happy Gilmore 2", img: "continuewatching4.jpeg" },
-    { id: 5, title: "Spiderman 2", img: "continuewatching5.jpeg" },
-  ];
-  var continueRow = document.getElementById("continueRow");
-  for (var i = 0; i < continuewatching.length; i++) {
-    var cardHTML =
-      '<div class="listing-card">' +
-      '<img src="' + continuewatching[i].img + '" alt="' + continuewatching[i].title + '">' +
-      '<p class="card-title">' + continuewatching[i].title + '</p>' +
-      '</div>';
-    continueRow.innerHTML += cardHTML;
-  }
-</script>
-<script> /* Javascript create cards and make them appear under each section */
-    
-    function createCard(item) {
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      const thumb = document.createElement('div');
-      thumb.className = 'thumb';
-
-      const img = document.createElement('img');
-      img.src = item.src;
-      img.alt = item.title || '';
-
-      thumb.appendChild(img);
-      card.appendChild(thumb);
-
-      const title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = item.title || '';
-      card.appendChild(title);
-
-      return card;
-    }
-
-    /* Place Created items into container based on defined class */
-    function renderSection(selector, items) {
-      const container = document.querySelector(selector);
-      items.forEach(item => {
-        const card = createCard(item);
-        container.appendChild(card);
-      });
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!data || !data.horror) {
-        console.error('Data missing or malformed');
-        return;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Home Page</title>
+    <link rel="stylesheet" href="netflix.css">
+    <style>
+      .container {    /*(.container, .sidebar, .sidebar img are all for the bar on left side of screen)*/
+        display: flex;
+        align-items: flex-start;
+      }
+      .sidebar {       
+        position: sticky;
+        top: 0px;
+        height: 100vh;   
+        width: 60px;
+        background-color: rgb(56, 52, 52);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+      }
+      .sidebar img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        margin-bottom: 75px;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: rgb(17, 14, 14);
+      }
+      main {
+        flex: 1;
+        padding: 20px;
+      }
+      .genres {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap; 
+      }
+      .heading {
+        color: red;
+        text-align: center;
+      }
+      .genreitem img {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      .genreitem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 10px;
+        text-decoration: none; 
+      }
+      .genreitem p {
+        font-size: 12px;
+        color: red;
+        margin-top: 6px;
+        text-align: center;
+      }
+      .listing-card img {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+      }
+      .listing-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 10px;
+      }
+      .card-title {
+        font-size: 12px;
+        color: red;
+        margin-top: 6px;
+        text-align: center;
       }
 
-      /*display cards in each section*/
-      renderSection('.Trending', data.index.trending);
-      renderSection('.Genres', data.index.genres);
-      renderSection('.ContinueWatching', data.index.continuewatching);
+      /* SEARCH BAR */
+      .home-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      .home-search img {
+        width: 20px;
+        height: 20px;
+      }
+      .home-search input {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid red;
+        background-color: black;
+        color: red;
+      }
+      .home-search input::placeholder {
+        color: red;
+      }
+      .home-search input[readonly] {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
 
-      
-    });
-  </script>  
+      <div class="sidebar">
+        <div class="item1"><img src="netflixicon.png" alt="Netflix"></div>
+        <div class="item2"><img src="Nhome.png" alt="Home"></div>
+        <div class="item3"><img src="tvshow.png" alt="Tv Shows"></div>
+        <div class="item3"><img src="Movies.png" alt="Movies"></div>
+        <div class="item4"><img src="Settings.png" alt="Settings"></div>
+      </div>
+
+      <main style="margin-left:80px; width: 100%;">
+
+        <div class="home-search" onclick="window.location.href='search.html'">
+          <img src="netflixsearch.png" alt="Search">
+          <input type="text" placeholder="Search..." readonly>
+        </div>
+
+        <h4 class="heading">Trending</h4>
+        <div class="results_row_1" id="trendingRow"></div>
+
+        <h4 class="heading">Genres</h4>
+        <div class="genres">
+          <a href="horror.html" class="genreitem">
+            <img src="Michael Myers.jpeg" alt="Michael Myers">
+            <p>Horror</p>
+          </a>
+
+          <div class="genreitem">
+            <img src="Football.jpeg" alt="Football">
+            <p>Sports</p>
+          </div>
+          <div class="genreitem">
+            <img src="Sci Fi.jpeg" alt="Sci Fi">
+            <p>Sci-Fi</p>
+          </div>
+          <div class="genreitem">
+            <img src="Romance.jpeg" alt="Romance">
+            <p>Romance</p>
+          </div>
+          <div class="genreitem">
+            <img src="Cooking.jpeg" alt="Cooking">
+            <p>Cooking</p>
+          </div>
+        </div>
+
+        <h4 class="heading">Continue Watching</h4>
+        <div class="results_row_2" id="continueRow"></div>  
+
+      </main> 
+
+      <script>
+        var trending = [
+          { id: 1, title: "Superman", img: "trending1.jpeg" },
+          { id: 2, title: "Grown Ups 2", img: "trending2.jpeg" },
+          { id: 3, title: "Stranger Things", img: "trending3.jpg" },
+          { id: 4, title: "Kung Fu Panda", img: "trending4.jpeg" },
+          { id: 5, title: "Jaws", img: "trending5.png" },
+        ];
+        var trendingRow = document.getElementById("trendingRow");
+        
+        for (var i = 0; i < trending.length; i++) {
+          var cardHTML =
+            '<div class="listing-card">' +
+            '<img src="' + trending[i].img + '" alt="' + trending[i].title + '">' +
+            '<p class="card-title">' + trending[i].title + '</p>' +
+            '</div>';
+          trendingRow.innerHTML += cardHTML;
+        }
+      </script>
+
+      <script>
+        var continuewatching = [
+          { id: 1, title: "Extraction", img: "continuewatching1.png" },
+          { id: 2, title: "The Irishman", img: "continuewatching2.png" },
+          { id: 3, title: "Drake and Josh", img: "continuewatching3.jpeg" },
+          { id: 4, title: "Happy Gilmore 2", img: "continuewatching4.jpeg" },
+          { id: 5, title: "Spiderman 2", img: "continuewatching5.jpeg" },
+        ];
+        var continueRow = document.getElementById("continueRow");
+        for (var i = 0; i < continuewatching.length; i++) {
+          var cardHTML =
+            '<div class="listing-card">' +
+            '<img src="' + continuewatching[i].img + '" alt="' + continuewatching[i].title + '">' +
+            '<p class="card-title">' + continuewatching[i].title + '</p>' +
+            '</div>';
+          continueRow.innerHTML += cardHTML;
+        }
+      </script>
+
+    </div>
   </body>
 </html>

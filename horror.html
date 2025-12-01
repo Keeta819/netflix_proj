@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="netflix.css">
   <style>
       #search { /* adjusts dimensions of the searchbox to match the Netflix color & theme */
-        padding: 20px;
+        padding: 10px;
         background-color: black;
         border-color: red;
         color: red;
@@ -24,31 +24,28 @@
 
     h2 {
       color: white;
-      padding-left: 20vh;
     }
 
     .Trending { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 8vh;
+      gap: 20px;
+      overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
-      padding-left: 20vh;
-      
     }
     .Movies { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 8vh;
+      gap: 20px;
+      overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
-      padding-left: 20vh;
-      
     }
     .Shows { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 8vh;
+      gap: 20px;
+      overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
-      padding-left: 20vh;
     }
     .container { /* contains all of the content including the sidebar used to flex the screen to different sizes */
       display: flex;
@@ -56,133 +53,83 @@
 
     h1 {
       color: red;
-      padding-left:50vh;
+      padding-left:300px;
     
     }
     .searchbox {
       display: flex;
     }
 
-    .card {
-      width: 100px;
-      height: 200px;
-      display: inline;
-      margin: 10px;
-      border-radius: 9px;
-      color: grey;
-    }
-    
-    #searchimg {
-      padding-left: 10vh;
-    }
    
+
   </style>
 </head>
 <body>
    <div class="container">
 
    <div class="sidebar">
-    <div class="item1"><a href="Really Testing.html"><img src="netflixicon.png" alt="Netflix"></a></div>
-    <div class="item2"><a href="NetflixHome.html"><img src="Nhome.png" alt="Home"></a></div>
-    <div class="item3"><a href="NetflixTV.html"><img src="tvshow.png" alt="Tv Shows"></a></div>
-    <div class="item3"><a href="NetflixMovies.html"><img src="Movies.png" alt="Movies"></a></div>
-    <div class="item4"><a href="NetflixSettings.html"><img src="Settings.png" alt="Settings"></a></div>
+    <div class="item1"><img src="netflixicon.png" alt="Netflix"></a></div>
+    <div class="item2"><a href="index.html"><img src="Nhome.png" alt="Home"></a></div>
+    <div class="item3"><img src="tvshow.png" alt="Tv Shows"></a></div>
+    <div class="item3"><img src="Movies.png" alt="Movies"></a></div>
+    <div class="item4"><img src="Settings.png" alt="Settings"></a></div>
   </div>
 
     <main> <!--I need to manipulate the rest of the body content from the main sidebar so that it appears side by side-->
       <div class="searchbox"> <!--I used a form here as a div class to include the search image next to it-->
-        <img id="searchimg"src="Search.png" alt="">
+        <img src="Search.png" alt="">
       <form>
     <label for="search"></label>
     <input type="text" id="search" name="search" value="" placeholder="Search">
   </form>
   </div>
-  <h1>Horror</h1>
 
     <h2>Trending</h2> <!--divs for all of the images and relevant sections are below-->
-<div class="Trending"> </div> <br><br><br>
+<div class="Trending">
+    <img src="horrorfeature1.png">
+    <img src="horrorfeature2.png">
+    <img src="horrorfeature3.png">
+    <img src="horrorfeature4.png">
+    <img src="horrorfeature5.png">
+    </div>
+
+    <h1>Horror</h1>
 
     <h2>Movies:</h2>
-    <div class ="Movies"></div>
+    <div class ="Movies">
+    <img src="leftarrow.png">
+    <img src="horrormovie1.png">
+    <img src="horrormovie2.png">
+    <img src="horrormovie3.png">
+    <img src="horrormovie4.png">
+    <img src="horrormovie5.png">
+    <img src="rightarrow.png">
+    </div>
 
     <h2>Shows:</h2>
-    <div class="Shows"> </div>
+    <div class="Shows">
+    <img src="leftarrow.png">
+    <img src="horrorshow1.png">
+    <img src="horrorshow2.png">
+    <img src="horrorshow3.png">
+    <img src="horroshow4.png">
+    <img src="horrorshow5.png">
+    <img src="rightarrow.png">
+    </div>
+
     </main>
    </div>
-  
-   <script> /*JSON Data (add more movies/shows as needed) */
-const data = {
-   horror:{
-    trending: [
-     {src:"horrorfeature1.png",title:"The Witch"},
-     {src: "horrorfeature2.png",title: "I Know What You Did Last Summer"},
-     {src: "horrorfeature3.png", title: "Talk To Me"},
-     {src: "horrorfeature4.png", title: "Abigail"},
-     {src: "horrorfeature5.png", title: "Halloween"}
-  ],
-  movies: [
-   { src: "horrormovie1.png", title: "Alien" },
-   { src: "horrormovie2.png", title: "" },
-    { src: "horrormovie3.png", title: "Weapons" },
-      { src: "horrormovie4.png", title: "The Purge" },
-      { src: "horrormovie5.png", title: "Friday The 13th" }
-  ],
-   shows: [
-          { src: "horrorshow1.png", title: "American Horror Story" },
-          { src: "horrorshow2.png", title: "The Haunting of Hill Manor" },
-          { src: "horrorshow3.png", title: "Evil" },
-          { src: "horroshow4.png", title: "Grotesquerie" },
-          { src: "horrorshow5.png", title: "Mariann" }
-],
-  }
-};
+
+   <script>
+   const movieData ={
+   horror: {
+    moveies: {
+      ""
+    }
+   }
+
+   }
+
    </script>
- <script> /* Javascript create cards and make them appear under each section */
-    
-    function createCard(item) {
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      const thumb = document.createElement('div');
-      thumb.className = 'thumb';
-
-      const img = document.createElement('img');
-      img.src = item.src;
-      img.alt = item.title || '';
-
-      thumb.appendChild(img);
-      card.appendChild(thumb);
-
-      const title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = item.title || '';
-      card.appendChild(title);
-
-      return card;
-    }
-
-    /* Place Created items into container based on defined class */
-    function renderSection(selector, items) {
-      const container = document.querySelector(selector);
-      items.forEach(item => {
-        const card = createCard(item);
-        container.appendChild(card);
-      });
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!data || !data.horror) {
-        console.error('Data missing or malformed');
-        return;
-      }
-
-      /*display cards in each section*/
-      renderSection('.Trending', data.horror.trending);
-      renderSection('.Movies', data.horror.movies);
-      renderSection('.Shows', data.horror.shows);
-
-      
-    });
-  </script>
-   
  </body> 
 </html>
