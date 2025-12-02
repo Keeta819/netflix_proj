@@ -44,10 +44,11 @@
     }
     .Shows { /* displays each section horizontally and will flex to match the screen size*/
       display: flex;
-      gap: 20px;
+      gap: 8vh;
       overflow: auto;
       flex-wrap: wrap;
       justify-content: center;
+      padding-left: 20vh;
     }
     .container { /* contains all of the content including the sidebar used to flex the screen to different sizes */
       display: flex;
@@ -180,16 +181,11 @@ const data = {
         container.appendChild(card);
       });
     }
-      document.addEventListener('DOMContentLoaded', function () {
-      if (!data || !data.horror) {
-        console.error('Data missing or malformed');
-        return;
-      }
+     
       /*display cards in each section*/
       renderSection('.Trending', data.horror.trending);
       renderSection('.Movies', data.horror.movies);
       renderSection('.Shows', data.horror.shows);
-    });
    </script>
  </body> 
 </html>
